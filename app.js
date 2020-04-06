@@ -1,13 +1,38 @@
 var createError = require('http-errors');
+const bodyParser = require('body-parser')
+
 var express = require('express');
+var app = express();
+
+const cors = require('express-cors')
+const fileUpload = require('express-fileupload')
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var cakesRouter = require('./routes/cakes');
 
-var app = express();
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors({
+  allowedOrigins: [
+    'localhost:3000',
+    'localhost:8080',
+    '0.0.0.0:3000',
+    '0.0.0.0:8080',
+    'arvuti.local:8080',
+    'arvuti.local:3000'
+  ]
+}))
+
+app.use(fileUpload(
+  /* {
+    useTempFiles: true,
+    tempFileDir: path.join(__dirname, 'public/images')
+  } */
+))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/cakes', cakesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
