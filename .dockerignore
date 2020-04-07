@@ -1,5 +1,6 @@
 .*
 docs
+data
 mkdocs.yml
 docker-compose.yml
 test*
