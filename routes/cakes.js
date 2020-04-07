@@ -78,7 +78,7 @@ router.delete('/:id', async (req, res) => {
 
 async function loadCakesCollection () {
   try {
-    const client = await require('mongodb').MongoClient.connect('mongodb://localhost:27017/express',
+    const client = await require('mongodb').MongoClient.connect('mongodb://mongo:27017/express',
       {
         useNewUrlParser: true,
         useUnifiedTopology: true
