@@ -1,6 +1,6 @@
 version: "2"
 services:
-  app:
+  express-app:
     container_name: funbun-be-api
     restart: always
     build: .
@@ -11,5 +11,6 @@ services:
   mongo:
     container_name: mongo
     image: mongo
+    restart: always
     ports:
       - "27017:27017"
