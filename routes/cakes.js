@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
     if (err) {
         return console.log(err)
     }
-    console.log('file uploaded')
+    console.log('file moved to ', filePath)
   })
 
   await db.insertOne(cake, (err, result) => {
