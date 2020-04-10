@@ -1,9 +1,10 @@
+.env
 .DS_Store
 node_modules/
 /dist/
 npm-debug.log*
 /public/
-/data/
+docker-compose.yml
 
 # Editor directories and files
 .idea
