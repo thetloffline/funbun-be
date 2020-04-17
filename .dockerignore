@@ -1,8 +1,8 @@
 .*
 docs
-data
 mkdocs.yml
 docker-compose.yml
 test*
 *.md
 !README.md
+!.env
