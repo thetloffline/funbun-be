@@ -3,6 +3,9 @@ const createError = require('http-errors')
 const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
+const repositor = require('./repositor.js')
+const calAverage = require('./controllers/calAverage')
+
 const db = require('./db')
 const cors = require('express-cors')
 const fileUpload = require('express-fileupload')
@@ -12,7 +15,8 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
 const router = require('./routes/routes')
-
+calAverage.initializeCalculation()
+repositor.initialize()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors({
   allowedOrigins: [

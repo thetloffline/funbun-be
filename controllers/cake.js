@@ -1,7 +1,6 @@
 const Cake = require('../models/cake.js')
 const Cafe = require('../models/cafe.js')
 const success = require('../utils/respond')
-// const mongoose = require('mongoose')
 
 exports.create = async (req, res, next) => {
   const cafeName = req.body.name

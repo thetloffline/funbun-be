@@ -1,0 +1,30 @@
+https://www.diagram.codes/d/sequence
+
+alias client="Client"
+alias vuex="Data store"
+alias API="API"
+alias db="DB"
+
+API -> API: "Subscribe to streams"
+API -> db: "fetch data"
+API -> API: "push {} to feedbackArr"
+API -> API: "push {} to GET stream"
+API -> API: "pipe stream; calc stats"
+vuex -> API: "GET data from URIs"
+
+client -> client: "Submit button pressed"
+client->vuex: "dispatch 'userFeedback'"
+vuex -> API: "POST userFeedback"
+API -> API: "push to feedbackArr"
+API -> API: "push to POST feedbackStream"
+API -> db: "create({ feedback })"
+
+API -> vuex: "response 200 || 400"
+vuex->vuex: "200: resolve <br> dispatch 'updateState'; <br> update cakesArrstate"
+
+vuex->vuex: "SET_CAKE updates cakesArr State"
+vuex->client: "update cakes[] <br> ...MapState"
+client -> client: "computed data: <br> isLast = true <br> {{ sortedCakes }}"
+client -> client: "render all cakes"
+client -> client: "scroll to added Cake"
+client -> client: "remove class 'lastCake'"

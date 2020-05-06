@@ -11,6 +11,17 @@ const asyncMiddleware = require('../utils/asyncMiddleware')
 });
  */
 
+router.route('/cafes')
+      .post(asyncMiddleware(cafe.create))
+      .get(asyncMiddleware(cafe.getFeedback))
+
+router.route('/cake/averageTasteScore')
+      .get(asyncMiddleware(cafe.averageTasteScore))
+
+
+
+
+      
 router.route('/cakes')
       .post(asyncMiddleware(cake.create))
       .get(asyncMiddleware(cake.getAllCakes))

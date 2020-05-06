@@ -9,9 +9,6 @@ const cafeSchema = mongoose.Schema(
     address: {
       type: String,
       trim: true
-    },
-    cakes: {
-      type: Array
     }
   },
   {
@@ -21,5 +18,5 @@ const cafeSchema = mongoose.Schema(
   }
 )
 
-// exports.cafeSchema = cafeSchema;
+exports.cafeSchema = cafeSchema;
 module.exports = mongoose.model('cafeModel', cafeSchema)
