@@ -6,7 +6,6 @@ exports.create = async (req, res) => {
     const result = await Product.create(req.body)
     success(res, result)
   } catch (error) {
-    // throw new Error?
     console.log('error creating new product :: ', error)
   }
 }
