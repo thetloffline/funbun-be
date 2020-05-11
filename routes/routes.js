@@ -1,28 +1,27 @@
 const router = require('express').Router()
-const cake = require('../controllers/cake')
-const cafe = require('../controllers/cafe')
+const shop = require('../controllers/shop')
+const product = require('../controllers/product')
+const feedback = require('../controllers/feedback')
 const asyncMiddleware = require('../utils/asyncMiddleware')
 
-// console.log(cakeSchema)
-/* GET users listing. */
-/* function findCafeName = router.get('/', function(req, res, next) {
-  console.log('tere')
-  res.send('respond with a resource');
-});
- */
+router.route('/products')
+  .get(asyncMiddleware(product.allProducts))
+  .post(asyncMiddleware(product.create))
 
-router.route('/cakes')
-      .post(asyncMiddleware(cake.create))
-      .get(asyncMiddleware(cake.getAllCakes))
-      
-router.route('/cafes')
-      //.post(asyncMiddleware(cafe.create))
-      .get(asyncMiddleware(cafe.getAllCafes))
-      
-router.route('/cafes/aggregateCakes')
-      .get(asyncMiddleware(cafe.getAggregatedCakes))
+router.route('/product/:id')
+  .get(asyncMiddleware(product.productById))
+  .put(asyncMiddleware(product.addFeedbackId))
 
-router.route('/cafes/:cafeId')
-      .get(asyncMiddleware(cafe.getOneCafeAndCakes))
+router.route('/shops')
+  .post(asyncMiddleware(shop.create))
+  .get(asyncMiddleware(shop.allShops))
 
-module.exports = router;
+router.route('/shop/:id')
+  .get(asyncMiddleware(shop.shopById))
+  .put(asyncMiddleware(shop.addProductId))
+
+router.route('/feedback')
+  .post(asyncMiddleware(feedback.create))
+  .get(asyncMiddleware(feedback.allFeedback))
+
+module.exports = router

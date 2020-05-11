@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node ./bin/www",
-    "dev": "NODE_ENV=development nodemon bin/www",
+    "dev": "NODE_ENV=development nodemon ./bin/www",
     "eslint": "eslint ./",
     "eslint-fix": "eslint ./ --fix"
   },
@@ -18,8 +18,7 @@
     "http-errors": "~1.6.3",
     "mongodb": "^3.3.0",
     "mongoose": "^5.9.7",
-    "morgan": "~1.9.1",
-    "pug": "^2.0.4"
+    "morgan": "~1.9.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
