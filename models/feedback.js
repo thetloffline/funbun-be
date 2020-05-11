@@ -19,6 +19,10 @@ const feedbackSchema = mongoose.Schema(
     comment: {
       type: String,
       trim: true
+    },
+    productImage: {
+      type: String,
+      trim: true
     }
   },
   {
