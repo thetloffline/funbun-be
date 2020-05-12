@@ -17,9 +17,6 @@ const productSchema = mongoose.Schema(
     price: {
       type: Number,
       trim: true
-    },
-    feedback: {
-      type: Array
     }
   },
   {

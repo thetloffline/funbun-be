@@ -18,11 +18,3 @@ exports.shopById = async (req, res) => {
   success(res, result)
 }
 
-exports.addProductId = async (req, res) => {
-  const result = await Shop.findOneAndUpdate(
-    { _id: req.params.id },
-    { $push: { products: req.body.productId } },
-    { new: true }
-  )
-  success(res, result)
-}

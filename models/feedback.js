@@ -5,9 +5,6 @@ const feedbackSchema = mongoose.Schema(
     productId: {
       type: mongoose.Schema.Types.ObjectId
     },
-    shopId: {
-      type: mongoose.Schema.Types.ObjectId
-    },
     looks: {
       type: Number,
       trim: true

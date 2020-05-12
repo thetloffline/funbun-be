@@ -30,15 +30,3 @@ exports.productById = async (req, res) => {
   }
 }
 
-exports.addFeedbackId = async (req, res) => {
-  try {
-    const result = await Product.findOneAndUpdate(
-      { _id: req.params.id },
-      { $push: { feedback: req.body.feedbackId } },
-      { new: true }
-    )
-    success(res, result)  
-  } catch (error) {
-    console.log('error adding feedback ID to product :: ', error)
-  }
-}

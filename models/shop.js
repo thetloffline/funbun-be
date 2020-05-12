@@ -11,9 +11,6 @@ const shopSchema = mongoose.Schema(
       type: String,
       trim: true,
       lowercase: true
-    },
-    products: {
-      type: Array
     }
   },
   {
