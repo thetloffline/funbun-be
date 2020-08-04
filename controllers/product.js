@@ -30,3 +30,15 @@ exports.productById = async (req, res) => {
   }
 }
 
+exports.updatePrice = async (req, res) => {
+  try {
+    const result = await Product.findByIdAndUpdate(
+      {_id: req.params.id},
+      {$push: { price: req.body.price }},
+      { new: true }
+    )
+    success(res, result)
+  } catch (error) {
+    console.log(error) 
+  }
+}
