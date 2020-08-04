@@ -15,7 +15,7 @@ const productSchema = mongoose.Schema(
       lowercase: true
     },
     price: {
-      type: Number,
+      type: [Number],
       trim: true
     }
   },
