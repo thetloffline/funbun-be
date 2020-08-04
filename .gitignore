@@ -5,6 +5,7 @@ node_modules/
 npm-debug.log*
 /public/
 docker-compose.yml
+init-mongo.js
 
 # Editor directories and files
 .idea

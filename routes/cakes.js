@@ -33,12 +33,12 @@ router.post('/', async (req, res) => {
   }
   // validate joi
 
-  /** 
+  /**
    * move file to accessible location
     */
   await file.mv(filePath, (err) => {
     if (err) {
-        return console.log(err)
+      return console.log(err)
     }
     console.log('file moved to ', filePath)
   })
