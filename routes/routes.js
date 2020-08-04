@@ -14,11 +14,15 @@ router.route('/shop/:id')
 router.route('/products')
   .get(asyncMiddleware(product.allProducts))
   .post(asyncMiddleware(product.create))
-
+  
 router.route('/product/:id')
   .get(asyncMiddleware(product.productById))
+  .put(asyncMiddleware(product.updatePrice))
 
-router.route('/feedback')
+router.route('/feedback/:id')
+  .put(asyncMiddleware(feedback.updateTaste))
+
+  router.route('/feedback')
   .post(asyncMiddleware(feedback.create))
   .get(asyncMiddleware(feedback.allFeedback))
 
